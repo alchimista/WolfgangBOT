@@ -1,16 +1,16 @@
-# SeroBOT
+# WolfgangBOT
 
-SeroBOT es un bot que revierte ediciones vandálicas usando [ORES](https://mediawiki.org/wiki/ORES) para calificar las ediciones usando los parámetros de `goodfaith`y `damaging` que provee la plataforma.
+WolfgangBOT é un bot que reverte vandalismo usando [ORES](https://mediawiki.org/wiki/ORES) para classificar las edições usando os parâmetros de `goodfaith` e `damaging` que a plataforma fornece.
 
-Este bot está disponible bajo licencia MIT
+Este bot está disponível através da licença MIT. Foi adaptado do SeroBOT operacional na es.wikipedia.org (ver https://github.com/dennistobar/serobot).
 
-## Instalación
-Este script requiere de [pywikibot](https://mediawiki.org/wiki/pywikibot) para funcionar, por lo cual se deben seguir los pasos de instalación de pywikibot. Además requiere [pandas](https://pandas.pydata.org/) para hacer el filtrado del log más eficiente y fácil de entender.
+## Instalação
+Este script requere o [pywikibot](https://mediawiki.org/wiki/pywikibot) para funcionar, pelo qual se devem seguir os pasos de instalação de pywikibot. Ademais requere [pandas](https://pandas.pydata.org/) para filtrar o log com mais eficiância e tornando-o mais fácil de entender.
 
-Para las dependencias, se deben instalar lo siguiente:
+Para as dependências, deve instalar-se o seguinte:
 `pip3 install sseclient requests pandas`
 
-Una vez hecho, se debe clonar el repositorio y ejecutar el script `python pwb.py <carpeta>/bot-revertir` para comenzar la ejecución del bot.
+Uma vez feito, deve-se clonar o repositório e ejecutar o script `python pwb.py <pasta>/bot-revertir` para começar a ejecução do bot.
 
-## Coopera
-Para cooperar con la construcción del bot, puede hacer pull request o reportar un [issue nuevo](https://github.com/dennistobar/serobot/issues/new) en [github](https://github.com/dennistobar/serobot.git)
+## Colabora
+Para cooperar com a construção do bot, pode fazer pull request ou reportar un [novo issue](https://github.com/themudo/WolfgangBOT/issues/new) em [github](https://github.com/themudo/WolfgangBOT.git)
