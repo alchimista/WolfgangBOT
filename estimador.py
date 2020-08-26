@@ -5,11 +5,11 @@ import os
 
 class estimador():
 
-    def __init__(self, archivo, dir=os.path.realpath(__file__)):
-        self.archivo = dir+'/'+archivo
-        if os.path.isfile(self.archivo) == False:
+    def __init__(self, arquivo, dir=os.path.realpath(__file__)):
+        self.arquivo = dir+'/'+arquivo
+        if os.path.isfile(self.arquivo) == False:
             return False
-        self.df = pd.read_csv(archivo, header=None, delimiter='\t')
+        self.df = pd.read_csv(arquivo, header=None, delimiter='\t')
 
     def check_user(self, user, page, max_time=60*60*4):
         df_user = self.df[4] == user
