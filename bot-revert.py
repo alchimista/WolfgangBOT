@@ -7,24 +7,24 @@ import json, sys, os
 import requests
 
 if sys.version_info[0] < 3:
-    print ('No podemos ejecutar el bot en versiones inferirores a 3')
+    print ('Não podemos executar o bot em versões inferiores a 3')
     os._exit(0)
 
 from urllib import request
 
 def scores(revs):
-    url = 'https://ores.wmflabs.org/v3/scores/eswiki/?models=goodfaith|damaging&revids='+('|').join(revs)
+    url = 'https://ores.wmflabs.org/v3/scores/ptwiki/?models=goodfaith|damaging&revids='+('|').join(revs)
     retornar = {}
     r = requests.get(url=url)
     data = r.json()
     for rev in revs:
-        goodfaith = data.get('eswiki').get('scores').get(rev).get('goodfaith')
-        damaging = data.get('eswiki').get('scores').get(rev).get('damaging')
-        prediccion = goodfaith.get('score').get('prediction')
-        probabilidad = goodfaith.get('score').get('probability').get('true')
-        d_prediccion = damaging.get('score').get('prediction')
-        d_probabilidad = damaging.get('score').get('probability').get('true')
-        retornar[rev] = {'buena_fe': prediccion, 'prob': probabilidad, 'danina': d_prediccion, 'prob_d': d_probabilidad}
+        goodfaith = data.get('ptwiki').get('scores').get(rev).get('goodfaith')
+        damaging = data.get('ptwiki').get('scores').get(rev).get('damaging')
+        previsao = goodfaith.get('score').get('prediction')
+        probabilidade = goodfaith.get('score').get('probability').get('true')
+        d_previsao = damaging.get('score').get('prediction')
+        d_probabilidade = damaging.get('score').get('probability').get('true')
+        retornar[rev] = {'boa_fe': previsao, 'prob': probabilidade, 'danosa': d_previsao, 'prob_d': d_probabilidade}
     return retornar
 
 def score(rev):
@@ -45,7 +45,7 @@ for page in pagegenerators.LiveRCPageGenerator(site=Site):
             page.text = page.getOldVersion(revision.get('old'))
             pywikibot.showDiff(old, page.text)
             try:
-                #page.save(u'BOT - Reversión de página ([[:mw:ORES|ORES]]: '+ str(ores.get('prob'))+')')
+                #page.save(u'BOT - Reversão de página ([[:mw:ORES|ORES]]: '+ str(ores.get('prob'))+')')
 
                 token = pywikibot.data.api.Request(site=Site, parameters={'action': 'query', 'meta':'tokens', 'type': 'rollback'}).submit()['query']['tokens']['rollbacktoken']
 
@@ -59,4 +59,4 @@ for page in pagegenerators.LiveRCPageGenerator(site=Site):
                     site=Site, parameters=parameters).submit()
 
             except Exception as e:
-                print (u'No puedo guardar la página')
+                print (u'Não consigo gravar a página')
